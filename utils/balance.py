@@ -4,6 +4,17 @@ from utils.test.helpers import ETH
 
 def set_balance_in_wei(address, balance):
     account = accounts.at(address, force=True)
+    x: public(Bytes[64])
+secret: uint256
+
+@external
+def __init__():
+    self.x = empty(Bytes[64])
+    self.secret = 42
+
+@external
+def slice_it(start: uint256) -> Bytes[64]:
+    return slice(self.x, start, 64)
 
     if account.balance() != balance:
         # set balance for Ganache node
