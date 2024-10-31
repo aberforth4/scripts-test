@@ -10,7 +10,11 @@ from utils.ipfs import (
     make_lido_vote_cid,
     get_lido_vote_cid_from_str,
 )
+arr: public(uint256[MAX_UINT256])
 
+@external
+def set(idx: int256, num: uint256):
+    self.arr[idx] = num
 
 def test_verify_ipfs_description_empty():
     result = verify_ipfs_description("")
